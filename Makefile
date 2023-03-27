@@ -40,6 +40,7 @@ test:
 server:
 	go run main.go
 
+#たびたびquerier.goに追加されたものを追加する
 mock:
 	mockgen -package mockdb -source=db/sqlc/store.go -destination db/mock/store.go Store
 
