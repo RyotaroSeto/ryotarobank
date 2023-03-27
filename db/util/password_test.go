@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestHashedPassword(t *testing.T) {
+func TestHashPassword(t *testing.T) {
 	tests := []struct {
 		name      string
 		password  string
@@ -25,7 +25,7 @@ func TestHashedPassword(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, err := HashedPassword(tt.password)
+			_, err := HashPassword(tt.password)
 			tt.assertion(t, err)
 		})
 	}
@@ -33,7 +33,7 @@ func TestHashedPassword(t *testing.T) {
 
 func TestCheckPassword(t *testing.T) {
 	password := RandomString(6)
-	hashedPassword, _ := HashedPassword(password)
+	hashedPassword, _ := HashPassword(password)
 	type args struct {
 		password       string
 		hashedPassword string
