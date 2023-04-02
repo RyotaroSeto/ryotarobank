@@ -9,7 +9,7 @@ import (
 	"time"
 	"database/sql"
 	"context"
-	"ryotarobank/db/util"
+	"ryotarobank/util"
 	"testing"
 
 	"github.com/stretchr/testify/require"

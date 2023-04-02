@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"log"
 	"os"
-	"ryotarobank/db/util"
+	"ryotarobank/util"
 	"testing"
 
 	_ "github.com/lib/pq"

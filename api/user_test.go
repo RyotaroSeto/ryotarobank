@@ -11,7 +11,7 @@ import (
 	"reflect"
 	mockdb "ryotarobank/db/mock"
 	db "ryotarobank/db/sqlc"
-	"ryotarobank/db/util"
+	"ryotarobank/util"
 	"testing"
 
 	"github.com/gin-gonic/gin"
@@ -180,7 +180,7 @@ func TestGetUserAPI(t *testing.T) {
 			store := mockdb.NewMockStore(ctrl)
 			tc.buildStubs(store)
 
-			server := NewServer(store)
+			server := newTestServer(t, store)
 			recorder := httptest.NewRecorder()
 
 			// Marshal body data to JSON

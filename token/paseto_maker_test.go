@@ -1,7 +1,7 @@
 package token
 
 import (
-	"ryotarobank/db/util"
+	"ryotarobank/util"
 	"testing"
 	"time"
 

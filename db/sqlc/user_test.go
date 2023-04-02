@@ -2,7 +2,7 @@ package db
 
 import (
 	"context"
-	"ryotarobank/db/util"
+	"ryotarobank/util"
 	"testing"
 	"time"
 

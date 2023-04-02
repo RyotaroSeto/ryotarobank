@@ -1,7 +1,7 @@
 package api
 
 import (
-	"ryotarobank/db/util"
+	"ryotarobank/util"
 
 	"github.com/go-playground/validator/v10"
 )

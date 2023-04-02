@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"ryotarobank/db/util"
+	"ryotarobank/util"
 
 	"github.com/stretchr/testify/require"
 )
