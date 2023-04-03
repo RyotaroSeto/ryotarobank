@@ -48,7 +48,7 @@ func EqCreateUserParams(arg db.CreateUserParams, password string) gomock.Matcher
 	return eqCreateUserParamsMatcher{arg, password}
 }
 
-func TestGetUserAPI(t *testing.T) {
+func TestCreateUserAPI(t *testing.T) {
 	user, password := randomUser(t)
 
 	testCases := []struct {
