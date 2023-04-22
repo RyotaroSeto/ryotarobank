@@ -1,26 +1,18 @@
-FROM golang:1.19-bullseye as deploy-builder
-
-WORKDIR /app
-
-COPY go.mod go.sum ./
-RUN go mod download
-
-COPY . .
-RUN go build -trimpath -ldflags "-w -s" -o app
-
-# ---------------------------------------------------
-
-FROM debian:bullseye-slim as deploy
-
-RUN apt-get update
-
-COPY --from=deploy-builder /app/app .
-
-CMD ["./app"]
-
-# ---------------------------------------------------
-
-FROM golang:1.19 as dev
+# Build stage
+FROM golang:1.20.3-alpine AS builder
 WORKDIR /app
 COPY . .
-# CMD ["go","run","main.go"]
+RUN go build -o main main.go
+
+# Run stage
+FROM alpine:3.16
+WORKDIR /app
+COPY --from=builder /app/main .
+COPY app.env .
+COPY start.sh .
+COPY wait-for.sh .
+COPY db/migration ./db/migration
+
+EXPOSE 8080
+CMD [ "/app/main" ]
+ENTRYPOINT [ "/app/start.sh" ]
