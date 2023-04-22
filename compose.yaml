@@ -12,14 +12,23 @@ services:
     volumes:
       - ./db/data:/var/lib/postgresql/data
       - ./db:/docker-entrypoint-initdb.d
+
   api:
     container_name: api
     build:
-      args:
-        - target=dev
       context: .
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+    environment:
+      - DB_SOURCE=postgresql://root:postgres@postgres:5432/ryotaro_bank?sslmode=disable
     depends_on:
       - postgres
+    entrypoint:
+      [
+        "/app/wait-for.sh",
+        "postgres:5432",
+        "--",
+        "/app/start.sh"
+      ]
+    command: [ "/app/main" ]
