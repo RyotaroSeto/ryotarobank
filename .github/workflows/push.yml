@@ -13,6 +13,7 @@ jobs:
         uses: ASzc/change-string-case-action@v5
         with:
           string: RyotaroSeto
+
       - id: step2
         run: echo ${{ steps.string.outputs.lowercase }}
 
