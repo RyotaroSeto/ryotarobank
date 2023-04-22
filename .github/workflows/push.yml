@@ -1,11 +1,10 @@
-name: push github
+name: Docker Build and Push
 
 on:
   push:
     branches:
       - main
 
-name: Docker Build and Push
 
 jobs:
   publish_docker_image:
