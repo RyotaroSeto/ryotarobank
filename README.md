@@ -28,3 +28,6 @@ https://github.com/kyleconroy/sqlc
     }
   },
 ```
+3. https://github.com/ktr0731/evans
+4. brew tap ktr0731/evans
+5. brew install evans
