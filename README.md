@@ -12,3 +12,19 @@ https://github.com/kyleconroy/sqlc
 1. npm install -g dbdocs
 2. touch doc/db.dbml
 3. vscode-dbmi
+
+
+### gprc
+1. vscode-proto3
+2. edit vscode setting
+```
+  "protoc": {
+    {
+      "protoc": {
+        "options": [
+          "--proto_path=proto"
+        ]
+      }
+    }
+  },
+```
